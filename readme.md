@@ -1,7 +1,7 @@
 # Welcome to SCOTS VCZ!
 
 **SCOTS** is an open source software tool to compute discrete abstractions and symbolic controllers.
-This repository is based on the work "Scalable and Approximation-free Symbolic Control for Unknown Euler-Lagrange Systems" (https://arxiv.org/abs/2509.19859).
+This repository is based on the work **"Scalable and Approximation-free Symbolic Control for Unknown Euler-Lagrange Systems"** (https://arxiv.org/abs/2509.19859).
 This repository hosts the VCZ branch with one-arm and two-arm manipulator examples.
 
 Please consult the [manual](https://gitlab.lrz.de/matthias/SCOTSv0.2/raw/master/manual/manual.pdf) for installation instructions,
