@@ -1,6 +1,7 @@
-# Welcome to SCOTSv0.2!
+# Welcome to SCOTS VCZ!
 
-**SCOTS** is an open source software tool to compute discrete abstractions and symbolic controllers!
+**SCOTS** is an open source software tool to compute discrete abstractions and symbolic controllers.
+This repository hosts the VCZ branch with one-arm and two-arm manipulator examples.
 
 Please consult the [manual](https://gitlab.lrz.de/matthias/SCOTSv0.2/raw/master/manual/manual.pdf) for installation instructions,
 usage description and background information.
@@ -16,16 +17,32 @@ Bug reports and feature requests are happily received at <matthias.rungger@tum.d
 
 * The best way to find out about **SCOTS** is to clone the repository 
   
-    `$ git clone https://gitlab.lrz.de/matthias/SCOTSv0.2.git`
+    `$ git clone https://github.com/FocasLab/SCOTS_VCZ.git`
   
-    and run some of the examples in the example directory: 
+    and run the VCZ examples in the examples directory:
 
-  * ./examples/dcdc/
-  * ./examples/vehicle/
+  * ./examples/one_arm/
+  * ./examples/two_arm/
 
     Have a look in the readme file for some info and compiler options
+
+### Example workflows:
+
+* **One-arm (VCZ)**
+  1) `make` in `examples/one_arm` to build `one_arm_scots`.
+  2) Run `./one_arm_scots` to generate `controller.scs`.
+  3) In MATLAB, run `to_csv.m` to export `controller.csv`.
+  4) Run `One_arm_manipulator.m` to simulate and plot results.
+
+* **Two-arm (VCZ 2R)**
+  1) `make` in `examples/two_arm` to build `two_arm_scots`.
+  2) Run `./two_arm_scots` to generate `controller.scs`.
+  3) Run `python3 scs_to_csv.py` to export `controller.csv`.
+  4) Run `two_arm_manipulator.m` (or `windom.m`) in MATLAB to visualize.
   
 ### What's new:
+
+* VCZ branch with one-arm and two-arm manipulator examples
 
 * The sparse branch (contributed by Eric Kim) implements the algorithm described
   in [Sparsity-Sensitive Finite Abstraction](https://arxiv.org/abs/1704.03951)
@@ -43,4 +60,3 @@ Bug reports and feature requests are happily received at <matthias.rungger@tum.d
 * Complete redesign of the code base to accommodate for modern C++
 
 * Doxygen documentation in ./doc/html/
-
