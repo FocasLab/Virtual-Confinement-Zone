@@ -60,3 +60,16 @@ Bug reports and feature requests are happily received at <matthias.rungger@tum.d
 * Complete redesign of the code base to accommodate for modern C++
 
 * Doxygen documentation in ./doc/html/
+
+
+### Citation
+
+If you use this code in your work, please cite the relevant SCOTS/VCZ publication. If you want a specific citation format (BibTeX), share it and I will add it here.
+
+### Contributions
+
+Contributions are welcome. Please open an issue or submit a pull request with a clear description of the change and any relevant results.
+
+### Acknowledgments
+
+Thanks to the original SCOTS author, Matthias Rungger, for the foundational codebase and tools this VCZ branch builds on. Original SCOTS repo: [https://gitlab.lrz.de/matthias/SCOTSv0.2.git](https://gitlab.lrz.de/matthias/SCOTSv0.2.git)
