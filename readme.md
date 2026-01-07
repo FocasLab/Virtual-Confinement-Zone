@@ -64,7 +64,36 @@ Bug reports and feature requests are happily received at <matthias.rungger@tum.d
 
 ### Citation
 
-If you use this code in your work, please cite the relevant SCOTS/VCZ publication. If you want a specific citation format (BibTeX), share it and I will add it here.
+If you use this code in your work, please cite the relevant SCOTS/VCZ publication. BibTeX:
+
+```bibtex
+@misc{das2025scalableapproximationfreesymboliccontrol,
+      title={Scalable and Approximation-free Symbolic Control for Unknown Euler-Lagrange Systems},
+      author={Ratnangshu Das and Shubham Sawarkar and Pushpak Jagtap},
+      year={2025},
+      eprint={2509.19859},
+      archivePrefix={arXiv},
+      primaryClass={eess.SY},
+      url={https://arxiv.org/abs/2509.19859},
+}
+
+@inproceedings{10.1145/2883817.2883834,
+      author={Rungger, Matthias and Zamani, Majid},
+      title={SCOTS: A Tool for the Synthesis of Symbolic Controllers},
+      year={2016},
+      isbn={9781450339551},
+      publisher={Association for Computing Machinery},
+      address={New York, NY, USA},
+      url={https://doi.org/10.1145/2883817.2883834},
+      doi={10.1145/2883817.2883834},
+      booktitle={Proceedings of the 19th International Conference on Hybrid Systems: Computation and Control},
+      pages={99--104},
+      numpages={6},
+      keywords={symbolic models, feedback refinement relations, discrete abstractions, c++/matlab toolbox},
+      location={Vienna, Austria},
+      series={HSCC '16},
+}
+```
 
 ### Contributions
 
