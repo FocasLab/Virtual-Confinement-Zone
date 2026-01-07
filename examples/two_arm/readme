@@ -1,0 +1,13 @@
+VCZ 2R workflow
+----------------
+
+1) Toolchain setup: adjust the `Makefile` to your compiler/`mex` environment as needed for your machine.
+2) Build the controller generator: run `make` in this folder to build the `two_arm_scots` binary.
+3) Generate the SCOTS controller: execute `./two_arm_scots` to produce `controller.scs` (and any auxiliary `.scs` files such as `target.scs`).
+4) Export to CSV: run `python3 scs_to_csv.py` to create `controller.csv` from the `.scs`.
+5) Visualize in MATLAB: open MATLAB, `cd` into this folder, ensure `../../mfiles` is on the path, and run `two_arm_manipulator.m` (or `windom.m` if you only want the winning-set scatter).
+
+Customization tips
+- Reach point: in `two_arm_scots.cc`, edit the target bounds in the `target` lambda (currently `x ∈ [0.7,0.8], y ∈ [-0.8,-0.7]`), then rebuild with `make` and re-run `./two_arm_scots` + `python3 scs_to_csv.py`.
+- In `two_arm_manipulator.m`, you can change VCZ radii/parameters or tweak the initial end-effector configuration (`th0`, `x`, etc.) before plotting; `windom.m` plots the winning set from `controller.scs`.
+- If you regenerate `controller.scs`, re-run step 4 to refresh `controller.csv` before plotting.

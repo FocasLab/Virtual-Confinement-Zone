@@ -1,0 +1,14 @@
+One-arm SCOTS workflow
+----------------------
+
+1) Toolchain setup: adjust the `Makefile` compiler/flags for your machine if needed.
+2) Build the SCOTS controller generator: run `make` to compile `one_arm_scots`.
+3) Synthesize the controller: execute `./one_arm_scots` to produce `controller.scs`.
+4) Export the controller table: in MATLAB, run `to_csv.m` (with `../../mfiles` and optionally `../../mfiles/mexfiles` on the path). It reads `controller.scs` and writes `controller.csv`.
+5) Simulate/plot: then run `One_arm_manipulator.m`, which loads `controller.scs` (or `controller.csv` if you prefer) to simulate the one-arm dynamics with the VCZ approach and generate plots. 
+
+Customization tips
+- Grid/abstraction parameters: edit `one_arm_scots.cc`  and rebuild + rerun steps 2–4.
+- Make sure the initial states are choosen according to winning domain in `windom.m` according to choosen VCZ radius lambda which is choosen according to input bounds.
+- Target set: tweak `lb`/`ub` in `one_arm_scots.cc`. Rebuild, rerun `./one_arm_scots`, then refresh `controller.csv` via `to_csv.m` before plotting.
+- Simulation: adjust initial state, and plotting options directly in `One_arm_manipulator.m`.
