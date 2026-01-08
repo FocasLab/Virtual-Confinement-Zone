@@ -23,9 +23,9 @@ Bug reports and feature requests are happily received at <matthias.rungger@tum.d
   
     and run the VCZ examples in the examples directory:
 
-  * ./examples/one_arm/
-  * ./examples/two_arm/
-  * ./examples/MultiAgent/
+  * `./examples/one_arm/`    [SCOTS toolbox + MATLAB]
+  * `./examples/two_arm/`    [SCOTS toolbox + MATLAB]
+  * `./examples/MultiAgent/` [MATLAB]
 
     Have a look in the readme file for some info and compiler options
 
