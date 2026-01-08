@@ -1,8 +1,9 @@
 # Welcome to SCOTS VCZ!
 
 **SCOTS** is an open source software tool to compute discrete abstractions and symbolic controllers.
+
 This repository is based on the work **"Scalable and Approximation-free Symbolic Control for Unknown Euler-Lagrange Systems"** (https://arxiv.org/abs/2509.19859).
-This repository hosts the VCZ branch with one-arm and two-arm manipulator examples.
+This repository hosts the VCZ branch with one-arm, two-arm, and multi-agent examples.
 
 Please consult the [manual](https://gitlab.lrz.de/matthias/SCOTSv0.2/raw/master/manual/manual.pdf) for installation instructions,
 usage description and background information.
@@ -18,12 +19,13 @@ Bug reports and feature requests are happily received at <matthias.rungger@tum.d
 
 * The best way to find out about **SCOTS** is to clone the repository 
   
-    `$ git clone https://github.com/FocasLab/SCOTS_VCZ.git`
+    `$ git clone https://github.com/FocasLab/Virtual-Confinement-Zone`
   
     and run the VCZ examples in the examples directory:
 
   * ./examples/one_arm/
   * ./examples/two_arm/
+  * ./examples/MultiAgent/
 
     Have a look in the readme file for some info and compiler options
 
@@ -34,12 +36,19 @@ Bug reports and feature requests are happily received at <matthias.rungger@tum.d
   2) Run `./one_arm_scots` to generate `controller.scs`.
   3) In MATLAB, run `to_csv.m` to export `controller.csv`.
   4) Run `One_arm_manipulator.m` to simulate and plot results.
+  5) Synthesis is performed using the SCOTS toolbox (multi-agent uses MATLAB-based abstraction/synthesis instead).
 
 * **Two-arm (VCZ 2R)**
   1) `make` in `examples/two_arm` to build `two_arm_scots`.
   2) Run `./two_arm_scots` to generate `controller.scs`.
   3) Run `python3 scs_to_csv.py` to export `controller.csv`.
   4) Run `two_arm_manipulator.m` (or `windom.m`) in MATLAB to visualize.
+  5) Synthesis is performed using the SCOTS toolbox (multi-agent uses MATLAB-based abstraction/synthesis instead).
+
+* **Multi-agent (VCZ)**
+  1) In MATLAB, run `VCZ.m` to generate the VCZ centre trajectory and save `poses.csv`.
+  2) Run `VCZ_control2.m` to track the VCZ centre.
+  3) Synthesis is performed using MATLAB-based abstraction and synthesis.
   
 ### What's new:
 
