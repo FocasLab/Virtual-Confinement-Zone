@@ -55,13 +55,13 @@ For a quick setup without manual C++ dependency management:
 These examples use the SCOTS toolbox for controller synthesis.
 1.  **Build**: Navigate to `examples/one_arm` (or `two_arm`) and run `make`.
 2.  **Synthesize**: Execute `./one_arm_scots` (or `./two_arm_scots`) to generate `controller.scs`.
-3.  **Export**: Open MATLAB, `cd` to the example folder, and run `to_csv.m` to convert the controller for easy simulation.
-4.  **Simulate**: Run the main manipulator script (e.g., `One_arm_manipulator.m`) to visualize the results.
+3.  **Export**: Open MATLAB, `cd` to the example folder, and run `to_csv.m` to convert the controller to csv format.
+4.  **Simulate**: Run the main manipulator script (e.g., `One_arm_manipulator.m`) to simulate and  visualize the results.
 
 ### 2. Multi-Agent Systems
 This example is handled directly within MATLAB.
 1.  **Synthesize**: Run `VCZ.m` to compute the VCZ center trajectory and save `poses.csv`.
-2.  **Control**: Run `VCZ_control2.m` to track the generated trajectory.
+2.  **Control**: Run `VCZ_control2.m` to track the simulated trajectory.
 
 
 
