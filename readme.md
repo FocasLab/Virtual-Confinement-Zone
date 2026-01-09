@@ -29,7 +29,7 @@ Traditional symbolic control requires precise models or conservative approximati
     ```
 2.  **Install CUDD**: Follow the instructions in [INSTALL_CUDD.md](INSTALL_CUDD.md) to build the library locally.
 
-### Docker-based Execution
+#### Docker-based Execution
 For a quick setup without manual C++ dependency management:
 1.  **Build/Run**: Refer to [DOCKER_INSTRUCTIONS.md](DOCKER_INSTRUCTIONS.md) for commands to build the image and run containers with volume mounting.
 2.  **Inside Container**: Use the same synthesis steps as described in the Manipulator workflows.
