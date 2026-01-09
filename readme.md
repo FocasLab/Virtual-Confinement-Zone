@@ -28,7 +28,12 @@ Traditional symbolic control requires precise models or conservative approximati
     cd Virtual-Confinement-Zone
     ```
 2.  **Install CUDD**: Follow the instructions in [INSTALL_CUDD.md](INSTALL_CUDD.md) to build the library locally.
-3.  **(Optional) Use Docker**: For a quick setup without worrying about C++ dependencies, refer to [DOCKER_INSTRUCTIONS.md](DOCKER_INSTRUCTIONS.md).
+
+### Docker-based Execution
+For a quick setup without manual C++ dependency management:
+1.  **Build/Run**: Refer to [DOCKER_INSTRUCTIONS.md](DOCKER_INSTRUCTIONS.md) for commands to build the image and run containers with volume mounting.
+2.  **Inside Container**: Use the same synthesis steps as described in the Manipulator workflows.
+3.  **Visualization**: All outputs are synced to your local machine for use in MATLAB.
 
 ---
 
@@ -58,11 +63,7 @@ This example is handled directly within MATLAB.
 1.  **Synthesize**: Run `VCZ.m` to compute the VCZ center trajectory and save `poses.csv`.
 2.  **Control**: Run `VCZ_control2.m` to track the generated trajectory.
 
-### 3. Docker-based Execution
-For a quick setup without manual C++ dependency management:
-1.  **Build/Run**: Refer to [DOCKER_INSTRUCTIONS.md](DOCKER_INSTRUCTIONS.md) for commands to build the image and run containers with volume mounting.
-2.  **Inside Container**: Use the same synthesis steps as described in the Manipulator workflows.
-3.  **Visualization**: All outputs are synced to your local machine for use in MATLAB.
+
 
 ---
 
