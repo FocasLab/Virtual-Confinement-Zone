@@ -1,0 +1,17 @@
+.git
+**/*.o
+**/*.a
+**/*.io
+**/*.exe
+**/*.so
+**/*.dylib
+**/*.pdf
+doc
+manual
+mfiles
+examples/one_arm/one_arm_scots
+examples/two_arm/two_arm_scots
+examples/one_arm/controller.scs
+examples/two_arm/controller.scs
+cudd-3.0.0/lib/*
+cudd-3.0.0/obj/*

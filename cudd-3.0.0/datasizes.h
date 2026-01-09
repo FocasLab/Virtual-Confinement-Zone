@@ -1,4 +1,0 @@
-#define SIZEOF_INT 4
-#define SIZEOF_LONG 8
-#define SIZEOF_LONG_DOUBLE 16
-#define SIZEOF_VOID_P 8
