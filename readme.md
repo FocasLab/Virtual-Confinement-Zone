@@ -30,6 +30,10 @@ Bug reports and feature requests are happily received at <matthias.rungger@tum.d
 
     Have a look in the readme file for some info and compiler options
 
+### Running with Docker
+
+If you want to run the SCOTS toolbox using Docker (recommended for easy setup), see [DOCKER_INSTRUCTIONS.md](DOCKER_INSTRUCTIONS.md).
+
 ### Example workflows:
 
 * **One-arm (VCZ)**

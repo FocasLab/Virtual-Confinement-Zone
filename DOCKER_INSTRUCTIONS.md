@@ -4,7 +4,8 @@ This repository includes a `Dockerfile` to build the project and its examples in
 
 ## Prerequisites
 
-- Docker installed on your system.
+- Docker Desktop installed and **running** on your system.
+- Verify with: `docker --version`
 
 ## Building the Docker Image
 
@@ -15,34 +16,74 @@ docker build -t vcz-scots .
 ```
 
 This will:
-1.  Install necessary dependencies (Clang, libc++, Python, etc.).
-2.  Build the CUDD library.
-3.  Build the `one_arm` and `two_arm` examples.
+1. Install necessary dependencies (Clang, libc++, Python, etc.).
+2. Build the CUDD library.
+3. Build the `one_arm` and `two_arm` examples.
+
+---
 
 ## Running the Examples
 
-You can run the container iteratively:
+Run Docker with volume mounting so output files are saved to your local folder (required for MATLAB):
 
+**Linux/Mac:**
 ```bash
-docker run -it vcz-scots
+docker run -it -v "$(pwd)":/app vcz-scots
 ```
 
-Inside the container, navigate to the example directories to run them.
+**Windows PowerShell:**
+```powershell
+docker run -it -v ${PWD}:/app vcz-scots
+```
+
+Inside the container, rebuild and run the examples:
 
 ### One Arm Example
 
 ```bash
-cd examples/one_arm
+cd /app/examples/one_arm
+make clean && make
 ./one_arm_scots
 ```
 
 ### Two Arm Example
 
 ```bash
-cd examples/two_arm
+cd /app/examples/two_arm
+make clean && make
 ./two_arm_scots
 python3 scs_to_csv.py
 ```
+
+After running, type `exit` to leave the container. All output files will be available in your local `examples/` folder for use in MATLAB.
+
+> **Note:** For post-processing instructions or details on editing each example, refer to the `readme.md` file in the respective example folder.
+
+---
+
+## Making Code Changes
+
+1. **Edit** the `.cc` files on your local machine using any editor.
+2. **Run** Docker with volume mount (same command as above).
+3. **Rebuild** inside the container:
+   ```bash
+   cd /app/examples/one_arm
+   make clean && make
+   ./one_arm_scots
+   ```
+4. **Exit** — compiled files and outputs are already in your local folder.
+
+---
+
+## Quick Reference
+
+| Task | Command |
+|------|---------|
+| Build image | `docker build -t vcz-scots .` |
+| Run with volume mount | `docker run -it -v ${PWD}:/app vcz-scots` |
+| Rebuild example | `make clean && make` |
+
+---
 
 ## Note
 
