@@ -1,7 +1,7 @@
 # Welcome to SCOTS VCZ!
 
 
-This repository is based on the work **"Scalable and Approximation-free Symbolic Control for Unknown Euler-Lagrange Systems"** (https://arxiv.org/abs/2509.19859) BASED ON **"SCOTS Toolbox** ".
+This repository is based on the work **"Scalable and Approximation-free Symbolic Control for Unknown Euler-Lagrange Systems"** (https://arxiv.org/abs/2509.19859) based on **"SCOTS Toolbox** ".
 This repository hosts the VCZ branch with one-arm, two-arm, and multi-agent examples.
 
 **SCOTS** is an open source software tool to compute discrete abstractions and symbolic controllers.

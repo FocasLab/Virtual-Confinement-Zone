@@ -4,7 +4,7 @@ This repository includes a `Dockerfile` to build the project and its examples in
 
 ## Prerequisites
 
-- Docker Desktop installed and **running** on your system.
+- Docker installed and **running** on your system (Docker Desktop for Windows/Mac, or Docker Engine for Linux).
 - Verify with: `docker --version`
 
 ## Building the Docker Image
