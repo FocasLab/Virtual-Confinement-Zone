@@ -55,7 +55,7 @@ These examples use the SCOTS toolbox for controller synthesis.
 
 ### 2. Multi-Agent Systems
 This example is handled directly within MATLAB.
-1.  **Generate Trajectory**: Run `VCZ.m` to compute the VCZ center trajectory and save `poses.csv`.
+1.  **Synthesize**: Run `VCZ.m` to compute the VCZ center trajectory and save `poses.csv`.
 2.  **Control**: Run `VCZ_control2.m` to track the generated trajectory.
 
 ---
