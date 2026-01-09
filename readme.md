@@ -1,85 +1,68 @@
-# Welcome to SCOTS VCZ!
+# Virtual Confinement Zone (VCZ) for Symbolic Control
 
+This repository implements the **Virtual Confinement Zone (VCZ)** framework, as described in the research paper:
+**["Scalable and Approximation-free Symbolic Control for Unknown Euler-Lagrange Systems"](https://arxiv.org/abs/2509.19859)**.
 
-This repository is based on the work **"Scalable and Approximation-free Symbolic Control for Unknown Euler-Lagrange Systems"** (https://arxiv.org/abs/2509.19859) based on **"SCOTS Toolbox** ".
-This repository hosts the VCZ branch with one-arm, two-arm, and multi-agent examples.
+The project builds upon the foundational **SCOTS Toolbox** (Symbolic Control of Transition Systems) to provide robust control strategies for Euler-Lagrange systems with unknown dynamics.
 
-**SCOTS** is an open source software tool to compute discrete abstractions and symbolic controllers.
+---
 
-Please consult the [manual](https://gitlab.lrz.de/matthias/SCOTSv0.2/raw/master/manual/manual.pdf) for installation instructions,
-usage description and background information.
+## Overview
 
-For implementation details please have a look in the C++ documentation ./doc/html/index.html
+Traditional symbolic control requires precise models or conservative approximations. The VCZ approach enables:
+* **Scalable Synthesis**: Efficiently handles complex systems by confining them within parameterized zones.
+* **Model-Free Guarantee**: Provides safety and reachability even when system dynamics are unknown.
+* **Integrated Workflow**: Combines C++ for high-performance controller synthesis with MATLAB for simulation and visualization.
 
-Bug reports and feature requests are happily received at <matthias.rungger@tum.de> 
+## Getting Started
 
-### How to use:
+### Prerequisites
+*   A C++11 compliant compiler (Clang recommended).
+*   [MATLAB](https://www.mathworks.com/products/matlab.html) (for post-processing and simulation).
+*   [CUDD Library](https://github.com/ivmai/cudd) (Colorado University Decision Diagram).
 
-* The basic implementation of **SCOTS** is inlined and header only. Hence, only a working C++ compiler
-  with C++11 support is needed.
+### Installation
+1.  **Clone the Repository**:
+    ```bash
+    git clone https://github.com/FocasLab/Virtual-Confinement-Zone.git
+    cd Virtual-Confinement-Zone
+    ```
+2.  **Install CUDD**: Follow the instructions in [INSTALL_CUDD.md](INSTALL_CUDD.md) to build the library locally.
+3.  **(Optional) Use Docker**: For a quick setup without worrying about C++ dependencies, refer to [DOCKER_INSTRUCTIONS.md](DOCKER_INSTRUCTIONS.md).
 
-* The best way to find out about **SCOTS** is to clone the repository 
-  
-    `$ git clone https://github.com/FocasLab/Virtual-Confinement-Zone`
-  
-    and run the VCZ examples in the examples directory:
+---
 
-  * `./examples/one_arm/`    [SCOTS toolbox + MATLAB]
-  * `./examples/two_arm/`    [SCOTS toolbox + MATLAB]
-  * `./examples/MultiAgent/` [MATLAB]
+## Repository Structure
 
-    Have a look in the readme file for some info and compiler options
+*   `./examples/`: Contains benchmark implementations:
+    *   `one_arm`: Single-arm manipulator using SCOTS + MATLAB.
+    *   `two_arm`: Two-arm manipulator (2R) using SCOTS + MATLAB.
+    *   `MultiAgent`: Multi-agent system implemented entirely in MATLAB.
+*   `./doc/`: Doxygen-generated C++ documentation.
+*   `./mfiles/`: Core MATLAB functions for symbolic control and VCZ visualization.
+*   `./src/`: Underlying SCOTS header-only library.
 
-### Running with Docker
+---
 
-If you want to run the SCOTS toolbox using Docker (recommended for easy setup), see [DOCKER_INSTRUCTIONS.md](DOCKER_INSTRUCTIONS.md).
+## Example Workflows
 
-### Example workflows:
+### 1. One-Arm & Two-Arm Manipulators
+These examples use the SCOTS toolbox for controller synthesis.
+1.  **Build**: Navigate to `examples/one_arm` (or `two_arm`) and run `make`.
+2.  **Synthesize**: Execute `./one_arm_scots` (or `./two_arm_scots`) to generate `controller.scs`.
+3.  **Export**: Open MATLAB, `cd` to the example folder, and run `to_csv.m` to convert the controller for easy simulation.
+4.  **Simulate**: Run the main manipulator script (e.g., `One_arm_manipulator.m`) to visualize the results.
 
-* **One-arm (VCZ)**
-  1) `make` in `examples/one_arm` to build `one_arm_scots`.
-  2) Run `./one_arm_scots` to generate `controller.scs`.
-  3) In MATLAB, run `to_csv.m` to export `controller.csv`.
-  4) Run `One_arm_manipulator.m` to simulate and plot results.
-  5) Synthesis is performed using the SCOTS toolbox (multi-agent uses MATLAB-based abstraction/synthesis instead).
+### 2. Multi-Agent Systems
+This example is handled directly within MATLAB.
+1.  **Generate Trajectory**: Run `VCZ.m` to compute the VCZ center trajectory and save `poses.csv`.
+2.  **Control**: Run `VCZ_control2.m` to track the generated trajectory.
 
-* **Two-arm (VCZ 2R)**
-  1) `make` in `examples/two_arm` to build `two_arm_scots`.
-  2) Run `./two_arm_scots` to generate `controller.scs`.
-  3) In MATLAB, run `to_csv.m` to export `controller.csv`.
-  4) Run `two_arm_manipulator.m` (or `windom.m`) in MATLAB to visualize.
-  5) Synthesis is performed using the SCOTS toolbox (multi-agent uses MATLAB-based abstraction/synthesis instead).
+---
 
-* **Multi-agent (VCZ)**
-  1) In MATLAB, run `VCZ.m` to generate the VCZ centre trajectory and save `poses.csv`.
-  2) Run `VCZ_control2.m` to track the VCZ centre.
-  3) Synthesis is performed using MATLAB-based abstraction and synthesis.
-  
-### What's new:
+## Citation
 
-* VCZ branch with one-arm and two-arm manipulator examples
-
-* The sparse branch (contributed by Eric Kim) implements the algorithm described
-  in [Sparsity-Sensitive Finite Abstraction](https://arxiv.org/abs/1704.03951)
-
-* New data structure to store the transition function of symbolic models
-   
-* New synthesis algorithms for invariance and reachability specifications 
-    (see the manual for details)
-
-* Dynamic variable reordering can now be safely activated throughout all computations in the BDD implementation
-
-* An example demonstrating the usage of validated ODE solvers 
-    to compute a priori enclosures and growth bounds
-
-* Complete redesign of the code base to accommodate for modern C++
-
-* Doxygen documentation in ./doc/html/
-
-
-### Citation
-
-If you use this code in your work, please cite the relevant SCOTS/VCZ publication. BibTeX:
+If you use this work in your research, please cite:
 
 ```bibtex
 @misc{das2025scalableapproximationfreesymboliccontrol,
@@ -92,28 +75,14 @@ If you use this code in your work, please cite the relevant SCOTS/VCZ publicatio
       url={https://arxiv.org/abs/2509.19859},
 }
 
-@inproceedings{10.1145/2883817.2883834,
+@inproceedings{rungger2016scots,
       author={Rungger, Matthias and Zamani, Majid},
       title={SCOTS: A Tool for the Synthesis of Symbolic Controllers},
+      booktitle={Proceedings of the 19th International Conference on Hybrid Systems: Computation and Control (HSCC)},
       year={2016},
-      isbn={9781450339551},
-      publisher={Association for Computing Machinery},
-      address={New York, NY, USA},
-      url={https://doi.org/10.1145/2883817.2883834},
-      doi={10.1145/2883817.2883834},
-      booktitle={Proceedings of the 19th International Conference on Hybrid Systems: Computation and Control},
-      pages={99--104},
-      numpages={6},
-      keywords={symbolic models, feedback refinement relations, discrete abstractions, c++/matlab toolbox},
-      location={Vienna, Austria},
-      series={HSCC '16},
+      doi={10.1145/2883817.2883834}
 }
 ```
 
-### Contributions
-
-Contributions are welcome. Please open an issue or submit a pull request with a clear description of the change and any relevant results.
-
-### Acknowledgments
-
-Thanks to the original SCOTS author, Matthias Rungger, for the foundational codebase and tools this VCZ branch builds on. Original SCOTS repo: [https://gitlab.lrz.de/matthias/SCOTSv0.2.git](https://gitlab.lrz.de/matthias/SCOTSv0.2.git)
+## Acknowledgments
+We acknowledge **Matthias Rungger** for the original SCOTS toolbox. This branch extends the toolbox to support VCZ-based control for Euler-Lagrange systems.
