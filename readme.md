@@ -46,7 +46,7 @@ If you want to run the SCOTS toolbox using Docker (recommended for easy setup), 
 * **Two-arm (VCZ 2R)**
   1) `make` in `examples/two_arm` to build `two_arm_scots`.
   2) Run `./two_arm_scots` to generate `controller.scs`.
-  3) Run `python3 scs_to_csv.py` to export `controller.csv`.
+  3) In MATLAB, run `to_csv.m` to export `controller.csv`.
   4) Run `two_arm_manipulator.m` (or `windom.m`) in MATLAB to visualize.
   5) Synthesis is performed using the SCOTS toolbox (multi-agent uses MATLAB-based abstraction/synthesis instead).
 

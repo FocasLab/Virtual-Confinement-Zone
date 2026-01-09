@@ -52,7 +52,6 @@ make clean && make
 cd /app/examples/two_arm
 make clean && make
 ./two_arm_scots
-python3 scs_to_csv.py
 ```
 
 After running, type `exit` to leave the container. All output files will be available in your local `examples/` folder for use in MATLAB.
